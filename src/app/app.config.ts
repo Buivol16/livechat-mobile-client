@@ -5,18 +5,20 @@ import {
   provideAppInitializer,
   provideZoneChangeDetection,
 } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { PreloadAllModules, provideRouter, RouteReuseStrategy, withPreloading } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import initKeycloak from './chatapp/init/keycloak-init';
 import NotificationService from './chatapp/services/notification/notificationservice';
 import { addAuthorizationHeaderInterceptor } from './chatapp/interceptors/addheader.interceptor';
+import { IonicRouteStrategy, provideIonicAngular } from '@ionic/angular';
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes),
+    provideRouter(routes, withPreloading(PreloadAllModules)),
     provideHttpClient(withInterceptors([addAuthorizationHeaderInterceptor])),
     provideAppInitializer(async () => {
       const injector = inject(Injector);
@@ -25,5 +27,6 @@ export const appConfig: ApplicationConfig = {
       notificationService.listenNotification();
       return notificationService;
     }),
+    provideIonicAngular({}),
   ],
 };

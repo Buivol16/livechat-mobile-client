@@ -2,3 +2,10 @@
     min-width: 21.319444444444444444444444444444vw;
     width: 21.319444444444444444444444444444vw;
 }
+
+@media (max-width: 600px) {
+  .menu-width{
+    min-width: 100vw;
+    width: 100vw;
+}
+}

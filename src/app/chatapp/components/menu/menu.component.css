@@ -17,3 +17,9 @@
 .section-gap{
     gap: clamp(10px, 0.69444444444444444444444444444444vw, 20px);
 }
+
+@media (max-width: 600px) {
+  div{
+    
+  }
+}

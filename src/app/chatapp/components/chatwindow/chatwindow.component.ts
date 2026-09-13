@@ -18,6 +18,7 @@ import { MessageReadEvent } from '../../models/messagereadevent.models';
 import { ChatProfile } from '../chatprofile/chatprofile.component';
 import { Member } from '../../models/member.models';
 import { Router, RouterOutlet } from '@angular/router';
+import { IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle, IonContent } from '@ionic/angular';
 
 @Component({
   selector: 'app-chatwindow',
@@ -28,7 +29,13 @@ import { Router, RouterOutlet } from '@angular/router';
     FormsModule,
     MessageComponent /* ChatProfileImageComponent*/,
     ChatProfile,
-    RouterOutlet
+    RouterOutlet,
+    IonHeader,
+    IonToolbar,
+    IonButtons,
+    IonBackButton,
+    IonTitle,
+    IonContent
 ],
   host: {
     class: 'w-full',
@@ -50,24 +57,24 @@ export class ChatWindowComponent {
 
   @ViewChild('chatContainer')
   private chatContainer?: ElementRef<HTMLDivElement>;
-  
+
   timeoutId: number | undefined;
   readonly checkedMessages = signal<MessageReadEvent[]>([]);
-  
+
   readonly renderedMessages = viewChildren(MessageComponent);
-  
+
   constructor() {
     afterRenderEffect(() => {
       const chat = this.currChat();
       const messagesReceived = this.messageService.getMessagesSignal();
-      
+
       if (!chat || !messagesReceived() || !this.chatContainer) return;
-      
+
       const nativeElement = this.chatContainer?.nativeElement;
       const scrollHeight = nativeElement.scrollHeight;
-      
+
       if (this.renderedMessages().length !== chat.messages.length) return;
-      
+
       console.log('Scroll height: ' + scrollHeight);
       this.chatScrollService.registerChatContainer(this.chatContainer);
       this.chatScrollService.restorePosition(chat.id);
@@ -77,11 +84,11 @@ export class ChatWindowComponent {
   openShareWindow() {
     this.router.navigate(['/main/chat/share']);
   }
-  
+
   removeUser(mem: Member) {
     this.chatService.kickMember(mem);
   }
-  
+
   sendMyMessage(event: SubmitEvent) {
     if (this.message().trim().length < 1) return;
     const chat = this.currChat()!;
