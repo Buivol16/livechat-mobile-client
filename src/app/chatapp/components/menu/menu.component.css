@@ -3,23 +3,3 @@
     background-size: auto 100%;
     padding-left: 30px;
 }
-
-.section-header{
-    font-size: clamp(16px, 1.25vw, 20px);
-    line-height: clamp(15px, 1.46484375vh, 20px);
-    height: fit-content;
-}
-
-.section-header-tip{
-    font-size: clamp(10.5px, 0.72916666666666666666666666666667vw, 20px);
-}
-
-.section-gap{
-    gap: clamp(10px, 0.69444444444444444444444444444444vw, 20px);
-}
-
-@media (max-width: 600px) {
-  div{
-    
-  }
-}

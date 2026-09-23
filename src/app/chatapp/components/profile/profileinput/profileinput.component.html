@@ -1,0 +1,8 @@
+<div class="flex flex-col gap-profile-input-gap">
+  <span class="font-lgt text-s text-accent">{{label()}}</span>
+  @if (type() === 'textarea') {
+    <ion-textarea class="border-sec-border-width border-app-border rounded-profile-input min-h-profileinput-textarea-min-h!" [placeholder]="placeholder()"></ion-textarea>
+  }@else {
+    <ion-input class="border-sec-border-width border-app-border rounded-profile-input" [placeholder]="placeholder()"/>
+  }
+</div>

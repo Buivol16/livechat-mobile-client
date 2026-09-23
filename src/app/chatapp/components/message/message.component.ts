@@ -16,7 +16,6 @@ import { MessageReadEvent } from '../../models/messagereadevent.models';
   selector: 'app-message',
   templateUrl: './message.component.html',
   styleUrl: './message.component.css',
-  standalone: true,
   imports: [NgClass],
 })
 export class MessageComponent implements AfterViewInit {

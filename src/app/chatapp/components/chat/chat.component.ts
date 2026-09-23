@@ -1,8 +1,7 @@
 import { Component, inject, input } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 import { ChatService } from '../../services/chat/chatservice';
 import { Chat } from '../../models/chat.models';
-import { NgClass } from '@angular/common';
 import { ChatScrollService } from '../../services/scroll/chatscrollservice';
 
 @Component({
@@ -10,7 +9,6 @@ import { ChatScrollService } from '../../services/scroll/chatscrollservice';
   selector: 'app-chat',
   templateUrl: './chat.component.html',
   styleUrl: './chat.component.css',
-  imports: [RouterLink, NgClass],
 })
 export class ChatComponent {
   protected readonly chatService: ChatService = inject(ChatService);

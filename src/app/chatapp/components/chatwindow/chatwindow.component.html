@@ -1,72 +1,62 @@
 <!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
 <!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
-<router-outlet />
-@if (chatProfileOpened() && this.currChat()) {
-<app-chatprofile [chat]="this.currChat()!" (closeWindow)="chatProfileOpened.set(false)" [chatDescription]="this.currChat()!.description" (removeUserFunc)="this.removeUser($event)"/>
-}
-
-<div class="h-full w-full flex flex-col padd10 gap10">
-    <div
-        class="border-b border-[#D9D9D9] dark:border-[#111f35] flex flex-row px-[1.3888888888888888888888888888889vw] py-[1.0416666666666666666666666666667vw] gap10">
-        <img [src]="getChatImage()" alt="Chat image" class="chat-image rounded-full cursor-pointer"
-            (click)="chatProfileOpened.set(true)">
-        <div class="h-full content-center">
-            <h1 class="font-normal text-[1vw] text-[#333333] cursor-pointer" (click)="chatProfileOpened.set(true)">
-                {{getChatName()}}</h1>
-            @if(this.currChat() && this.currChat()!.isPrivate){
-            <h2 class="font-normal text-[0.83333333333333333333333333333333vw] text-[#A6A6A6]">User</h2>
-            }
-        </div>
-        @if(this.currChat() && !this.currChat()!.isPrivate){
-        <div class="ml-auto self-center">
-            <button class="cursor-pointer" (click)="openShareWindow()">Share</button>
-        </div>
+<ion-content forceOverscroll="false">
+  <div class="h-full w-full flex flex-col pt-chatwindow-top-padding pb-chatwindow-bottom-padding px-chatwindow-x-padding gap10 overflow-hidden">
+    <div class="border-b border-app-border dark:border-[#111f35] flex flex-row header-padding gap10">
+      <ion-back-button defaultHref="/main" text="" icon="img/Chevronleft.svg" />
+      <img [src]="'img\\dkhmara.png'" alt="Chat image" class="chat-image rounded-full"
+        (click)="chatProfileOpened.set(true)">
+      <div class="h-full content-center">
+        <p class="font-normal! text-[4vw] text-accent cursor-pointer m-0!" (click)="chatProfileOpened.set(true)">
+          {{getChatName()}}</p>
+        @if(this.currChat() && this.currChat()!.isPrivate){
+        <p class="font-normal! text-[3.3333333333333333333333333333333vw] text-noaccent m-0!">User</p>
         }
+      </div>
+      @if(this.currChat() && !this.currChat()!.isPrivate){
+      <div class="ml-auto self-center">
+        <button class="cursor-pointer" (click)="openShareWindow()">Share</button>
+      </div>
+      }
+    </div>
+
+    <!-- ================== CHAT CONTAINER ======================== -->
+    <div #chatContainer class="flex-1 overflow-y-auto flex flex-col gap-2.5"
+      (scroll)="this.chatScrollService.checkTheEndOfScroll(this.currChat()!.id)">
+      @if (this.currChat()) {
+      @for (mes of this.currChat()!.messages; track $index) {
+      <div class="flex w-full gap-[0.69444444444444444444444444444444vw]" [class.justify-end]="mes.isMyMessage">
+        <app-message [message]='mes.encryptedMessage' [isMyMessage]="mes.isMyMessage"
+          [isCompoundMessage]="haveNextMessageFromSameSender(mes, $index)"
+          [isFirstMessageInCompound]="isFirstMessage(mes, $index)"
+          [isLastMessageInCompound]="isLastMessage(mes, $index)" [when]="mes.formattedDate!" [isChecked]="mes.isRead"
+          [isSent]="mes.isSent" [id]="mes.id!" [authorId]="mes.authorId"
+          (writeCheckedMessage)="writeCheckedMessageId($event.messageId, $event.authorId)" />
+        <!-- <app-chatprofileimage [isMe]="mes.isMyMessage" [profileImage]="mes.senderImage"/> -->
+      </div>
+      }
+      }@else{
+      <p class="text-gray-500 dark:text-gray-600 text-3xl font-semibold text-center ">Send your first message...</p>
+      }
     </div>
 
 
-    <div #chatContainer class="flex-1 p-8 overflow-y-auto flex flex-col gap-2.5"
-        (scroll)="this.chatScrollService.checkTheEndOfScroll(this.currChat()!.id)">
-        @if (this.currChat()) {
-        @for (mes of this.currChat()!.messages; track $index) {
-        <div class="flex w-full gap-[0.69444444444444444444444444444444vw]" [class.justify-end]="mes.isMyMessage">
-            <app-message [message]='mes.encryptedMessage' [isMyMessage]="mes.isMyMessage"
-                [isCompoundMessage]="haveNextMessageFromSameSender(mes, $index)"
-                [isFirstMessageInCompound]="isFirstMessage(mes, $index)"
-                [isLastMessageInCompound]="isLastMessage(mes, $index)" [when]="mes.formattedDate!"
-                [isChecked]="mes.isRead" [isSent]="mes.isSent" [id]="mes.id!" [authorId]="mes.authorId"
-                (writeCheckedMessage)="writeCheckedMessageId($event.messageId, $event.authorId)" />
-            <!-- <app-chatprofileimage [isMe]="mes.isMyMessage" [profileImage]="mes.senderImage"/> -->
-        </div>
-        }
-        }@else{
-        <p class="text-gray-500 dark:text-gray-600 text-3xl font-semibold text-center ">Send your first message...</p>
-        }
-    </div>
+    <!-- ============================= INPUT =========================== -->
+
     @if (this.currChat()) {
-    <div class="min-h-[2.4305555555555555555555555555556vw] max-h-[2.4305555555555555555555555555556vw]">
-        <form autocomplete="off" (submit)="sendMyMessage($event)"
-            class="flex flex-row gap-[0.34722222222222222222222222222222vw] h-full">
-            <input type="text" [(ngModel)]="message" name="message" placeholder="Type a message..."
-                class="w-full py-[0.69444444444444444444444444444444vw] px-[1.0416666666666666666666666666667vw] rounded-[9.0972222222222222222222222222222vw] text-[0.97222222222222222222222222222222vw] placeholder:text-[#A6A6A6] text-[#333333] focus:outline-none dark:bg-[#0b121c] dark:border-[#111f35] bg-white grow " />
-            <button type="button"
-                class="h-full aspect-square bg-white rounded-full p-[0.34722222222222222222222222222222vw] cursor-pointer">
-                <img src="img/emojis.png" alt="emojis">
-            </button>
-            <input type="image" src="img/send.png" alt="send" value="Send"
-                class="h-full aspect-square bg-white rounded-full p-[0.34722222222222222222222222222222vw] cursor-pointer" />
-        </form>
+    <div class="min-h-input-height max-h-input-height">
+      <form autocomplete="off" (submit)="sendMyMessage($event)"
+        class="flex flex-row gap-input-gap h-full">
+        <input type="text" [(ngModel)]="message" name="message" placeholder="Type a message..."
+          class="w-full py-input-padding pl-input-padding-start rounded-input text-s! placeholder:text-noaccent font-m! text-accent focus:outline-none dark:bg-[#0b121c] dark:border-[#111f35] bg-white grow " />
+        <button type="button" class="h-full aspect-square bg-white rounded-full! p-input-icon-padding! cursor-pointer">
+          <img src="img/emojis.png" alt="emojis">
+        </button>
+        <input type="image" src="img/send.png" alt="send" value="Send"
+          class="h-full aspect-square bg-white rounded-full p-input-icon-padding cursor-pointer" />
+      </form>
 
     </div>
     }
-</div>
-
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/example/dashboard"></ion-back-button>
-    </ion-buttons>
-    <ion-title>Item </ion-title>
-  </ion-toolbar>
-</ion-header>
-<ion-content class="ion-padding">You navigated to item.</ion-content>
+  </div>
+</ion-content>

@@ -1,17 +1,23 @@
 .checked-status {
-    filter: invert(57%) sepia(48%) saturate(4818%) hue-rotate(156deg) brightness(103%) contrast(101%);
-    transition: filter 0.3s ease-in;
+  filter: invert(57%) sepia(48%) saturate(4818%) hue-rotate(156deg)
+    brightness(103%) contrast(101%);
+  transition: filter 0.3s ease-in;
 }
 
-.not-checked-status{
-    filter: invert(73%) sepia(0%) saturate(6%) hue-rotate(252deg) brightness(92%) contrast(87%);
-    transition: filter 0.3s ease-in;
+.not-checked-status {
+  filter: invert(73%) sepia(0%) saturate(6%) hue-rotate(252deg) brightness(92%)
+    contrast(87%);
+  transition: filter 0.3s ease-in;
 }
 
-.my-message-border-radius{
-    border-top-right-radius: 6.666667vw;
+.my-message-border-radius {
+  border-top-right-radius: 6.6666666666666666666666666666667vw;
 }
 
-.not-my-message-border-radius{
-    border-top-left-radius: 6.666667vw;
+.not-my-message-border-radius {
+  border-top-left-radius: 6.6666666666666666666666666666667vw;
+}
+
+.custom-icon-border {
+  box-shadow: inset 0 0 0 0.33333333333333333333333333333333vw #F2F2F2;
 }

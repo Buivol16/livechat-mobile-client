@@ -16,10 +16,10 @@
     "moduleResolution": "bundler",
     "importHelpers": true,
     "target": "ES2022",
-    "module": "ES2022", 
+    "module": "ES2022",
     "noUnusedLocals": false,
     "noUnusedParameters": false,
-    "allowUnusedLabels": true
+    "allowUnusedLabels": true,
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

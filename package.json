@@ -48,5 +48,13 @@
     "typescript": "~5.9.2",
     "typescript-eslint": "8.46.4",
     "@ionic/angular-toolkit": "latest"
+  },
+  "allowScripts": {
+    "@parcel/watcher@2.5.1": true,
+    "@tailwindcss/oxide@4.1.13": true,
+    "lmdb@3.4.2": true,
+    "esbuild@0.28.1": true,
+    "aws-sdk@2.1693.0": true,
+    "msgpackr-extract@3.0.4": true
   }
 }

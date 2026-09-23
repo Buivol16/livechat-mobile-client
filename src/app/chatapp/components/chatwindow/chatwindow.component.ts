@@ -15,26 +15,18 @@ import { MessageComponent } from '../message/message.component';
 import { MessageService } from '../../services/message/messageservice';
 import { ChatScrollService } from '../../services/scroll/chatscrollservice';
 import { MessageReadEvent } from '../../models/messagereadevent.models';
-import { ChatProfile } from '../chatprofile/chatprofile.component';
 import { Member } from '../../models/member.models';
-import { Router, RouterOutlet } from '@angular/router';
-import { IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle, IonContent } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { IonBackButton, IonContent } from '@ionic/angular';
 
 @Component({
   selector: 'app-chatwindow',
   templateUrl: './chatwindow.component.html',
   styleUrl: './chatwindow.component.css',
-  standalone: true,
   imports: [
     FormsModule,
     MessageComponent /* ChatProfileImageComponent*/,
-    ChatProfile,
-    RouterOutlet,
-    IonHeader,
-    IonToolbar,
-    IonButtons,
     IonBackButton,
-    IonTitle,
     IonContent
 ],
   host: {

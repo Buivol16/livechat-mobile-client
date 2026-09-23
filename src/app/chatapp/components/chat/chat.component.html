@@ -1,21 +1,30 @@
 <!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
 <!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
-<div class="flex flex-row w-full chat-padding gap-1.5 items-stretch clickable border-b-[#D9D9D9]" [ngClass]="isSelected() ? 'bg-[#E6E6E6]' : 'bg-white'"
-    [class.bottom-border]="!lastOnMenuList()" (click)="selectThisChat()" [routerLink]="'./chat'">
-    <div class="relative h-full">
-        <img alt="Photo of the chat" [src]="imgSrc()" class="rounded-full chat-photo" />
-        @if (showOnline()) {
-        <div [class.bg-status-offline]="!isOnline()" [class.bg-status-online]="isOnline()"
-            class="status rounded-full absolute bottom-0 right-0"></div>
-        }
-    </div>
-    <div class="flex flex-col justify-between ">
-        <span class="font-medium text-text-accent chat-name" [textContent]="chatName()"></span>
-        <span [class.text-text-noaccent]="isRead()" [class.text-text-accent]="!isRead()"
-            class="font-normal truncate max-w-52" [textContent]="lastMessage()"></span>
-    </div>
-    <div class="grow-1 font-medium text-end self-start chat-last-message">
-        <span [class.text-text-noaccent]="isRead()" [class.text-text-accent]="!isRead()"
-            class="font-medium truncate max-w-52" [textContent]="getLastMessageDateFormatted()"></span>
-    </div>
+<div
+  class="flex flex-row w-full px-menu-chat-x-padding py-menu-chat-y-padding! gap-1.5 items-stretch clickable border-b-app-border bg-white"
+  [class.bottom-border]="!lastOnMenuList()" (click)="selectThisChat()">
+
+  <!-- =============== CHAT IMAGE ================== -->
+
+  <div class="relative h-full">
+    <img alt="Photo of the chat" [src]="imgSrc()" class="rounded-full chat-photo" />
+    @if (showOnline()) {
+    <div [class.bg-status-offline]="!isOnline()" [class.bg-status-online]="isOnline()"
+      class="status rounded-full absolute bottom-0 right-0"></div>
+    }
+  </div>
+
+  <!-- ================ CHAT NAME AND LAST MESSAGE LABEL ============== -->
+  <div class="flex flex-col justify-between ">
+    <span class="text-smd font-medium text-accent chat-name" [textContent]="chatName()"></span>
+    <span [class.text-noaccent]="isRead()" [class.text-accent]="!isRead()" class="text-xs font-normal truncate max-w-52"
+      [textContent]="lastMessage()"></span>
+  </div>
+
+  <!-- =========== 'AT ...' label ==================-->
+  <div class="grow text-s font-medium text-end self-start">
+    <span [class.text-noaccent]="isRead()" [class.text-accent]="!isRead()" class="truncate max-w-52"
+      [textContent]="getLastMessageDateFormatted()"></span>
+  </div>
+
 </div>

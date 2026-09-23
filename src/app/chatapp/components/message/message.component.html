@@ -1,20 +1,20 @@
-<p class="text-[0.83333333333333333333333333333333vw] text-[#A6A6A6] mb-[0.41666666666666666666666666666667vw] mr-[0.83333333333333333333333333333333vw]"
+<p class="text-[3.3333333333333333333333333333333vw] text-noaccent mb-[1.6666666666666666666666666666667vw] mr-[3.3333333333333333333333333333333vw]"
     [ngClass]="isMyMessage() ? 'text-end' : 'text-start'">
     At {{when()}}</p>
 <div #messageContainer class="flex flex-row">
     @if (isMyMessage()) {
     <div
-        class="left-[0.55555555555555555555555555555556vw] bg-white box-content border-[0.19vw] border-[#F2F2F2] rounded-full w-[1.1666666666666666666666666666667vw] aspect-square relative self-end">
+        class="left-check-status-left-margin bg-white box-border custom-icon-border border-app-background rounded-full w-check-status-width aspect-square relative self-end">
         @if (!isSent()) {
-            <img src="img/notsendstatus.svg" alt="sending...">
+            <img src="img\notsendstatus.svg" alt="sending...">
         }@else {
-            <img [class.checked-status]="isChecked()" [class.not-checked-status]="!isChecked()" src="img/notcheckstatus.svg"
+            <img [class.checked-status]="isChecked()" [class.not-checked-status]="!isChecked()" src="img\notcheckstatus.svg"
                 alt="check">
         }
-        
+
     </div>
     }
-    <div class="dark:bg-[#111a29] text-[#333333] text-[1.1666666666666666666666666666667vw] p-[0.83333333333333333333333333333333vw] max-w-[100%] break-words rounded-[15vw] bg-white w-fit h-full"
+    <div class="dark:bg-[#111a29] text-accent text-md p-message-padding max-w-full wrap-break-word rounded-[15vw] bg-white w-fit h-full"
         [ngClass]="isMyMessage() ? 'rounded-br-none my-message-border-radius' : 'rounded-bl-none not-my-message-border-radius'" [class.justify-self-end]="isMyMessage()"
         [class.justify-self-start]="!isMyMessage()">
         {{message()}}

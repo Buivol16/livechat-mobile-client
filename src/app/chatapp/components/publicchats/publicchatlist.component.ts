@@ -2,22 +2,23 @@ import { Component, inject, signal, WritableSignal } from "@angular/core";
 import { ChatComponent } from "../chat/chat.component";
 import { Chat } from "../../models/chat.models";
 import { ChatService } from "../../services/chat/chatservice";
+import { IonItem } from "@ionic/angular";
+import { RouterLink } from "@angular/router";
 
 @Component({
-    standalone: true,
-    selector: "app-public-chats",
-    templateUrl: "./publicchats.component.html",
-    styleUrl: "./publicchats.component.css",
-    imports: [ChatComponent]
+    selector: "app-public-chat-list",
+    templateUrl: "./publicchatlist.component.html",
+    styleUrl: "./publicchatlist.component.css",
+    imports: [ChatComponent, IonItem, RouterLink]
 })
-export class PublicChatsComponent{
+export class PublicChatListComponent{
     readonly chatService = inject(ChatService);
     readonly chats : WritableSignal<Chat[]> = signal([]);
 
     constructor(){
         this.getAndMapChats();
     }
-    
+
     getAndMapChats(){
         const result = this.chatService.getPublicChats();
         result.subscribe((objs) => {

@@ -1,0 +1,54 @@
+<ion-content [forceOverscroll]="false">
+  <div class="gap-profile flex flex-col px-menu-x-padding py-menu-y-padding">
+    <div class="flex flex-col gap-menu">
+      <div class="flex flex-row justify-center">
+        <ion-back-button class="absolute left-menu-x-padding" defaultHref="/main" text="" icon="img/Chevronleft.svg" />
+        <ion-text class="font-bold text-xlg">Profile Settings</ion-text>
+      </div>
+      <ion-text class="text-noaccent text-s">Update your photo, display name, and personal bio to personalize your
+        public
+        profile.</ion-text>
+    </div>
+
+    <div
+      class="gap-profile bg-white flex flex-col rounded-tab border-app-border border-sec-border-width px-menu-x-padding py-menu-y-padding">
+
+      <!-- ========================= PROFILE IMAGE FORM ======================= -->
+      <div class="flex flex-row gap-menu">
+        <ion-avatar class="w-profile-page-avatar h-profile-page-avatar aspect-square select-none">
+          <img alt="Your profile picture" draggable="false" src="img/avatarka.png" />
+        </ion-avatar>
+        <div class="flex flex-col gap-menu flex-2">
+          <div class="flex flex-row gap-menu">
+            <ion-button class="change-photo">Change photo</ion-button>
+            <ion-button class="delete">Delete</ion-button>
+          </div>
+          <ion-text class="text-noaccent text-xs">JPG, GIF or PNG. Max size of 800Kb</ion-text>
+        </div>
+      </div>
+
+      <!-- ======================= LINE ============================ -->
+
+      <div class="w-full h-0 border-app-background border-sec-border-width"></div>
+
+      <!-- ========================= PROFILE FORM ======================= -->
+
+      <div class="flex flex-col gap-profile">
+        <app-profile-input [label]="'Display Name'" [placeholder]="'Your Display Name'" />
+        <app-profile-input [label]="'Username'" [placeholder]="'Your Username'" />
+        <app-profile-input [label]="'Email'" [placeholder]="'Your Email'" />
+        <app-profile-input [label]="'Bio'" [placeholder]="'Your Bio'" [type]="'textarea'" />
+      </div>
+
+      <!-- ======================= LINE ============================ -->
+
+      <div class="w-full h-0 border-app-background border-sec-border-width"></div>
+
+      <!-- ============================= Save and cancel buttons ================================= -->
+      <div class="flex flex-row gap-menu w-full justify-end">
+        <ion-button class="cancel">Cancel</ion-button>
+        <ion-button class="save-changes">Save changes</ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

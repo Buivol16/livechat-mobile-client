@@ -1,33 +1,38 @@
-<div class="border-r-border-gray border-r-2 w-full h-full px-[3.2573289902280130293159609120521%] py-[1.953125%] section-gap flex flex-col">
+<ion-content [forceOverscroll]="false">
+  <div class="gap-menu flex flex-col px-menu-x-padding py-menu-y-padding">
+
+    <!-- ============= HEADER ================= -->
     <div class="flex flex-row w-full items-center gap-2.5">
-        <img alt="Your profile picture" draggable="false" class="min-w-[16.724738675958188153310104529617%] w-[16.724738675958188153310104529617%] aspect-square rounded-full select-none" src="img/avatarka.png"/>
-        <div class="flex flex-row bg-white text-text-accent rounded-4xl p-2.5 w-[65.156794425087108013937282229965%]">
-            <input placeholder="Search" class="outline-0 input-field">
-        </div>
-        <div class="rounded-full cursor-pointer bg-white p-3 aspect-square h-[66.666666666666666666666666666667%] w-[11.149825783972125435540069686411%]">
-            <img alt="Create a chat" src="img/Plus.png" class="w-full h-full select-none"/>
-        </div>
+      <img alt="Your profile picture" draggable="false" [routerLink]="['/profile']"
+        class="min-w-[16.724738675958188153310104529617%] w-[16.724738675958188153310104529617%] aspect-square rounded-full select-none"
+        src="img/avatarka.png" />
+      <div class="flex flex-row bg-white text-accent rounded-4xl p-2.5 w-[65.156794425087108013937282229965%]">
+        <input placeholder="Search" class="outline-0 input-field">
+      </div>
+      <div
+        class="rounded-full cursor-pointer bg-white p-3 aspect-square h-[66.666666666666666666666666666667%] w-[11.149825783972125435540069686411%]">
+        <img alt="Create a chat" src="img/Plus.png" class="w-full h-full select-none" />
+      </div>
     </div>
 
-    <div class="flex flex-col section-gap">
-        <div class="flex flex-row w-full justify-between font-semibold items-end">
-            <span class="text-text-accent section-header">Private Chats</span>
-            <span class="text-text-noaccent section-header-tip">2 unread messages</span>
-        </div>
-        <app-private-chats />
-    </div>
+    <!-- ====================== PRIVATE CHAT LIST ===================== -->
+    <ion-list class="flex! flex-col section-gap gap-menu bg-white">
+      <div class="flex flex-row w-full justify-between font-semibold items-end">
+        <span class="text-accent text-lg section-header">Private Chats</span>
+        <span class="text-noaccent section-header-tip">2 unread messages</span>
+      </div>
+      <app-public-chat-list />
+    </ion-list>
 
-    <div class="flex flex-col section-gap">
-        <div class="flex flex-row w-full justify-between font-semibold items-end">
-            <span class="text-text-accent section-header">Public Chats</span>
-            <span class="text-text-noaccent section-header-tip">2 unread messages</span>
-        </div>
-        <app-public-chats />
-    </div>
-    <div class="flex flex-col section-gap">
-        <button type="button" (click)="login($event)" class="w-full bg-white rounded-2xl py-6 cursor-pointer">Authenticate</button>
-    </div>
-    <div class="flex flex-col section-gap">
-        <button type="button" (click)="logout($event)" class="w-full bg-white rounded-2xl py-6 cursor-pointer">Log out</button>
-    </div>
-</div>
+    <!-- ====================== PRIVATE CHAT LIST ===================== -->
+    <ion-list class="flex! flex-col section-gap gap-menu">
+      <div class="flex flex-row w-full justify-between font-semibold items-end">
+        <span class="text-accent text-lg section-header">Private Chats</span>
+        <span class="text-noaccent section-header-tip">2 unread messages</span>
+      </div>
+      <app-private-chat-list />
+    </ion-list>
+
+
+  </div>
+</ion-content>

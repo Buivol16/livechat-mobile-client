@@ -1,17 +1,17 @@
 import { Component, inject, signal, WritableSignal } from "@angular/core";
 import { ChatService } from "../../services/chat/chatservice";
 import { Chat } from "../../models/chat.models";
-import { IonItem, IonList, IonContent, IonLabel, IonHeader, IonToolbar, IonTitle } from "@ionic/angular";
+import { ChatComponent } from "../chat/chat.component";
+import { IonItem } from "@ionic/angular";
 import { RouterLink } from "@angular/router";
 
 @Component({
-  standalone: true,
-  selector: 'app-private-chats',
-  templateUrl: './privatechats.component.html',
-  styleUrl: './privatechats.component.css',
-  imports: [IonItem, IonList, IonContent, RouterLink, IonLabel, IonHeader, IonToolbar, IonTitle],
+  selector: 'app-private-chat-list',
+  templateUrl: './privatechatlist.component.html',
+  styleUrl: './privatechatlist.component.css',
+  imports: [ChatComponent, IonItem, RouterLink],
 })
-export class PrivateChatsComponent {
+export class PrivateChatListComponent {
   readonly chatService = inject(ChatService);
   readonly chats: WritableSignal<Chat[]> = signal([]);
 

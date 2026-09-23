@@ -16,26 +16,14 @@
     outline: 0.10416666666666666666666666666667vw solid white;
 }
 
-.chat-name{
-    font-size: clamp(15px, 1.0416666666666666666666666666667vw, 20px);
-}
-
-.chat-last-message{
-    font-size: clamp(12px, 0.83333333333333333333333333333333vw, 20px);
-}
-
-.chat-padding{
-    padding: 0.83333333333333333333333333333333vw 1.0416666666666666666666666666667vw;
-}
-
 .clickable:hover{
     background: hsl(0, 0%, 95%);
-    transition: background ease-in 0.1s;
+    transition: background ease-in-out 0.2s;
 }
 
 .clickable{
     cursor: pointer;
-    transition: background ease-in-out 0.1s;
+    transition: background ease-in-out 0.2s;
 }
 
 .bottom-border{

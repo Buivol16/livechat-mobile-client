@@ -7,11 +7,11 @@ import {
   output,
   signal,
 } from '@angular/core';
-import { Chat } from '../../models/chat.models';
-import { Member } from '../../models/member.models';
-import { ChatService } from '../../services/chat/chatservice';
-import NotificationService from '../../services/notification/notificationservice';
-import { UserJoinsEvent } from '../../models/userjoinsevent.models';
+import { Chat } from '../../../models/chat.models';
+import { Member } from '../../../models/member.models';
+import { ChatService } from '../../../services/chat/chatservice';
+import NotificationService from '../../../services/notification/notificationservice';
+import { UserJoinsEvent } from '../../../models/userjoinsevent.models';
 
 @Component({
   selector: 'app-chatprofile',

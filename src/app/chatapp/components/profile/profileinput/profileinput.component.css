@@ -1,0 +1,17 @@
+ion-input{
+  --placeholder-font-weight: var(--font-weight-m);
+  font-size: var(--text-s);
+  --padding-bottom: var(--spacing-input-y-padding);
+  --padding-top: var(--spacing-input-y-padding);
+  --padding-start: var(--spacing-input-x-padding);
+  --color: var(--color-accent);
+}
+
+ion-textarea{
+  --placeholder-font-weight: var(--font-weight-m);
+  font-size: var(--text-s);
+  --padding-bottom: var(--spacing-input-y-padding);
+  --padding-top: var(--spacing-input-y-padding);
+  --padding-start: var(--spacing-input-x-padding);
+  --color: var(--color-accent);
+}
