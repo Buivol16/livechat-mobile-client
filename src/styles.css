@@ -24,6 +24,8 @@
   --color-noaccent: #a6a6a6;
   --color-status-online: #4bd932;
   --color-status-offline: #d9d9d9;
+  --color-cerulean: #00B8D9;
+  --color-sign-out: #FF6B6B;
   --border-width-sec-border-width: 1px;
   --spacing-message-padding: 3.3333333333333333333333333333333vw /* 12px/360px */;
   --spacing-input-y-padding: 3.75vw;
@@ -34,6 +36,9 @@
   --spacing-input-padding: 0.34722222222222222222222222222222vw;
   --spacing-input-padding-start: 4.1666666666666666666666666666667vw; /* 15px/360px */
   --spacing-menu: 2.7777777777777777777777777777778vw; /* 10px/360px */
+  --spacing-settings-block-gap: 3.3333333333333333333333333333333vw; /* 12px/360px */
+  --spacing-settings-sign-out-padding-y: 3.3333333333333333333333333333333vw; /* 12px/360px */
+  --spacing-settings-button-padding-y: 1.9444444444444444444444444444444vw; /* 7px/360px */
   --spacing-profile: 5.5555555555555555555555555555556vw; /* 20px/360px */
   --spacing-profile-input-gap: 2.2222222222222222222222222222222vw /* 8px/360px */;
   --spacing-profile-button-x-padding: 4.4444444444444444444444444444444vw /* 16px/360px */;
@@ -89,6 +94,14 @@
   border-radius: var(--radius-tab-button-selected);
   filter: drop-shadow(var(--drop-shadow-tab-button-selected));
   z-index: -1;
+}
+
+ion-toggle{
+  --track-background-checked: var(--color-cerulean);
+}
+
+ion-toggle::part(track){
+  height: 24px;
 }
 
 ion-tab-button {

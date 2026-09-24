@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { IonContent, IonBackButton, IonButton, IonText, IonAvatar, IonNavLink } from "@ionic/angular";
+import { IonContent, IonBackButton, IonButton, IonText, IonAvatar } from "@ionic/angular";
 import { ProfileInput } from "./profileinput/profileinput.component";
 
 @Component({
@@ -10,8 +10,7 @@ import { ProfileInput } from "./profileinput/profileinput.component";
     IonButton,
     IonText,
     IonAvatar,
-    ProfileInput,
-    IonNavLink
+    ProfileInput
 ],
   styleUrl: './profile.page.css',
   templateUrl: './profile.page.html',

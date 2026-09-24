@@ -1,0 +1,40 @@
+<ion-content [forceOverscroll]="false">
+  <div class="gap-profile flex flex-col px-menu-x-padding py-menu-y-padding">
+    <div class="flex flex-col gap-menu">
+      <div class="flex flex-row justify-center">
+        <ion-text class="font-bold text-xlg">Settings</ion-text>
+      </div>
+      <ion-text class="text-noaccent text-s">Manage notifications, privacy and appearance.</ion-text>
+    </div>
+    <div
+      class="gap-settings-block-gap bg-white flex flex-col rounded-tab border-app-border border-sec-border-width px-menu-x-padding py-menu-y-padding">
+      <ion-text class="text-md font-semibold">Appearance</ion-text>
+      <app-modal-opener-button [label]="'Theme'" [option]="'System'" />
+      <app-modal-opener-button [label]="'Text size'" [option]="'Default'" />
+    </div>
+
+    <div
+      class="gap-settings-block-gap bg-white flex flex-col rounded-tab border-app-border border-sec-border-width px-menu-x-padding py-menu-y-padding">
+      <ion-text class="text-md font-semibold">Notifications</ion-text>
+
+      <ion-toggle class="text-s py-settings-button-padding-y">Push notifications</ion-toggle>
+      <ion-toggle class="text-s py-settings-button-padding-y">Message previews</ion-toggle>
+      <ion-toggle class="text-s py-settings-button-padding-y">Sounds</ion-toggle>
+    </div>
+
+    <div
+      class="gap-settings-block-gap bg-white flex flex-col rounded-tab border-app-border border-sec-border-width px-menu-x-padding py-menu-y-padding">
+      <ion-text class="text-md font-semibold">Privacy</ion-text>
+
+      <ion-toggle class="text-s py-settings-button-padding-y">Read receipts</ion-toggle>
+      <app-modal-opener-button [label]="'Last seen'" [option]="'Contacts'" />
+      <app-modal-opener-button [label]="'Blocked users'" [option]="'2'" />
+    </div>
+
+    <div
+      class="gap-settings-block-gap bg-white flex flex-col rounded-tab border-app-border border-sec-border-width px-menu-x-padding py-settings-sign-out-padding-y">
+      <ion-button class="sign-out self-start">Sign out</ion-button>
+    </div>
+
+  </div>
+</ion-content>

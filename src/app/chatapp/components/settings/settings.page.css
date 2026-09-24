@@ -1,0 +1,12 @@
+.sign-out{
+  --background: none;
+  --background-activated: none;
+  --color: var(--color-sign-out);
+  border-width: 0;
+  --padding-top: var(--spacing-settings-button-padding-y);
+  --padding-bottom: var(--spacing-settings-button-padding-y);
+  --padding-end: none;
+  --padding-start: none;
+  min-height: fit-content;
+  font-size: var(--text-s);
+}
