@@ -50,3 +50,7 @@ ion-tab-button{
   --color: var(--color-noaccent);
   transition: all ease-in-out calc(var(--ease-tab-switch-animation-duration) - 100ms);
 }
+
+ion-modal {
+  --height: auto;
+}

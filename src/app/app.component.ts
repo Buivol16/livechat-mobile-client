@@ -13,10 +13,11 @@ export class AppComponent {
 
   constructor(){
     addIcons({
-      'chats': 'img/chats.svg',
-      'home': 'img/home.svg',
-      'settings': 'img/settings.svg',
-      'calls': 'img/calls.svg',
+      chats: 'img/chats.svg',
+      home: 'img/home.svg',
+      settings: 'img/settings.svg',
+      calls: 'img/calls.svg',
+      'selected-button-mark': 'img/selected-button-icon.svg',
     });
   }
 }

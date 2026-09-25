@@ -9,8 +9,74 @@
     <div
       class="gap-settings-block-gap bg-white flex flex-col rounded-tab border-app-border border-sec-border-width px-menu-x-padding py-menu-y-padding">
       <ion-text class="text-md font-semibold">Appearance</ion-text>
-      <app-modal-opener-button [label]="'Theme'" [option]="'System'" />
-      <app-modal-opener-button [label]="'Text size'" [option]="'Default'" />
+      <app-modal-opener-button id="choose-theme" [label]="'Theme'" [option]="'System'" />
+      <ion-modal trigger="choose-theme" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
+        <ng-template>
+          <div
+            class="min-h-fit flex flex-col items-center justify-center py-modal-y-padding px-modal-x-padding gap-modal-gap">
+            <ion-text class="text-md font-semibold mr-auto px-modal-x-padding">Choose theme</ion-text>
+            <div class="flex flex-col self-start gap-modal-elements-gap w-full">
+              <ion-button class="modal-button self-start ion-activated">
+
+                <span class="text-left w-full">
+                  System
+                </span>
+                <ion-icon [name]="true ? 'selected-button-mark' : ''"></ion-icon>
+              </ion-button>
+
+              <ion-button class="modal-button self-start ">
+                <span class="text-left w-full">
+                  Light
+                </span>
+                <ion-icon [name]="false ? 'selected-button-mark' : ''"></ion-icon>
+              </ion-button>
+
+              <ion-button class="modal-button self-start">
+                <span class="text-left w-full">
+                  Dark
+                </span>
+                <ion-icon [name]="false ? 'selected-button-mark' : ''"></ion-icon>
+
+              </ion-button>
+            </div>
+          </div>
+        </ng-template>
+      </ion-modal>
+
+      <app-modal-opener-button id="choose-text-size" [label]="'Text size'" [option]="'Default'" />
+      <ion-modal trigger="choose-text-size" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
+        <ng-template>
+          <div
+            class="min-h-fit flex flex-col items-center justify-center py-modal-y-padding px-modal-x-padding gap-modal-gap">
+            <ion-text class="text-md font-semibold mr-auto px-modal-x-padding">Choose text size</ion-text>
+            <div class="flex flex-col self-start gap-modal-elements-gap w-full">
+              <ion-button class="modal-button self-start">
+
+                <span class="text-left w-full">
+                  Large
+                </span>
+                <ion-icon [name]="false ? 'selected-button-mark' : ''"></ion-icon>
+              </ion-button>
+
+              <ion-button class="modal-button self-start ion-activated">
+                <span class="text-left w-full">
+                  Default
+                </span>
+                <ion-icon [name]="true ? 'selected-button-mark' : ''"></ion-icon>
+              </ion-button>
+
+              <ion-button class="modal-button self-start">
+                <span class="text-left w-full">
+                  Small
+                </span>
+                <ion-icon [name]="false ? 'selected-button-mark' : ''"></ion-icon>
+
+              </ion-button>
+            </div>
+          </div>
+        </ng-template>
+      </ion-modal>
+
     </div>
 
     <div
@@ -27,14 +93,50 @@
       <ion-text class="text-md font-semibold">Privacy</ion-text>
 
       <ion-toggle class="text-s py-settings-button-padding-y">Read receipts</ion-toggle>
-      <app-modal-opener-button [label]="'Last seen'" [option]="'Contacts'" />
+      <app-modal-opener-button id='last-seen-open-modal' [label]="'Last seen'" [option]="'Contacts'" />
       <app-modal-opener-button [label]="'Blocked users'" [option]="'2'" />
+
+      <ion-modal trigger="last-seen-open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
+        <ng-template>
+          <div
+            class="min-h-fit flex flex-col items-center justify-center py-modal-y-padding px-modal-x-padding gap-modal-gap">
+            <ion-text class="text-md font-semibold mr-auto px-modal-x-padding">Who can see last seen</ion-text>
+            <div class="flex flex-col self-start gap-modal-elements-gap w-full">
+              <ion-button class="modal-button self-start">
+
+                <span class="text-left w-full">
+                  Everyone
+                </span>
+                <ion-icon [name]="false ? 'selected-button-mark' : ''"></ion-icon>
+              </ion-button>
+
+              <ion-button class="modal-button self-start ion-activated">
+                <span class="text-left w-full">
+                  Contacts
+                </span>
+                <ion-icon [name]="true ? 'selected-button-mark' : ''"></ion-icon>
+              </ion-button>
+
+              <ion-button class="modal-button self-start">
+                <span class="text-left w-full">
+                  Nobody
+                </span>
+                <ion-icon [name]="false ? 'selected-button-mark' : ''"></ion-icon>
+
+              </ion-button>
+            </div>
+          </div>
+        </ng-template>
+      </ion-modal>
+
+      <ion-modal>
+
+      </ion-modal>
     </div>
 
     <div
       class="gap-settings-block-gap bg-white flex flex-col rounded-tab border-app-border border-sec-border-width px-menu-x-padding py-settings-sign-out-padding-y">
       <ion-button class="sign-out self-start">Sign out</ion-button>
     </div>
-
   </div>
 </ion-content>

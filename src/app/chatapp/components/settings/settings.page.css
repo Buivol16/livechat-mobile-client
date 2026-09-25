@@ -1,4 +1,4 @@
-.sign-out{
+.sign-out {
   --background: none;
   --background-activated: none;
   --color: var(--color-sign-out);
@@ -9,4 +9,25 @@
   --padding-start: none;
   min-height: fit-content;
   font-size: var(--text-s);
+}
+
+.modal-button {
+  --color: var(--color-accent);
+  --background: var(--color-modal-button-background);
+  width: 100%;
+}
+
+ion-modal {
+  --background: white;
+}
+
+ion-button{
+  --background-activated: var(--color-modal-button-activated-background);
+  ion-icon{
+    width: var(--spacing-modal-button-selected-icon-width);
+  }
+}
+
+ion-button.ion-activated{
+  --color: var(--color-modal-button-activated-text);
 }
