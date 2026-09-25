@@ -27,7 +27,7 @@
               }
             ],
             "styles": [
-              "src/styles.css",
+              "src/global.css",
               {
                 "input": "node_modules/@ionic/angular/css/core.css"
               },
@@ -118,7 +118,7 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/global.css"
             ],
             "scripts": []
           }
