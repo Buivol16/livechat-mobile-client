@@ -17,6 +17,7 @@ jobs:
 
       - run: npm ci
       - run: npm run build
+      - run: npx cap add ios
       - run: npx cap sync ios
 
       - name: Build for iOS Simulator
