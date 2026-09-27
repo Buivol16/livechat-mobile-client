@@ -1,0 +1,35 @@
+.delete{
+  --background: none;
+  --color: #FF6B6B;
+  --border-width: var(--border-width-sec-border-width);
+  --border-color: var(--color-app-border);
+  --border-style: solid;
+
+}
+
+.change-photo{
+  --background: var(--color-accent);
+  --border-radius: var(--radius-profile-input);
+}
+
+.cancel{
+  --background: none;
+  --color: var(--color-noaccent);
+  border-width: 0;
+}
+
+.save-changes{
+  --color: white;
+  --background: #00B9E3;
+  --border-radius: var(--radius-profile-input);
+}
+
+ion-button{
+  --padding-bottom: var(--spacing-profile-input-gap);
+  --padding-top: var(--spacing-profile-input-gap);
+  --padding-start: var(--spacing-profile-button-x-padding);
+  --padding-end: var(--spacing-profile-button-x-padding);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--text-xs);
+  --background-activated: none;
+}

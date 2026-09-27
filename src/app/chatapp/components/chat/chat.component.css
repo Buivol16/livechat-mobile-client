@@ -1,0 +1,31 @@
+.chat-photo{
+    min-width: clamp(42px, 2.9166666666666666666666666666667vw,200px);
+    min-height: clamp(42px, 2.9166666666666666666666666666667vw,200px);
+    width: clamp(42px, 2.9166666666666666666666666666667vw,200px);
+    height: clamp(42px, 2.9166666666666666666666666666667vw,200px);
+    aspect-ratio: 1/1;
+}
+
+.status{
+    min-height: clamp(7.5px, 0.52083333333333333333333333333333vw, 32px);
+    height: clamp(7.5px, 0.52083333333333333333333333333333vw, 32px);
+    min-width: clamp(7.5px, 0.52083333333333333333333333333333vw, 32px);
+    width: clamp(7.5px, 0.52083333333333333333333333333333vw, 32px);
+    aspect-ratio: 1/1;
+    box-sizing: content-box;
+    outline: 0.10416666666666666666666666666667vw solid white;
+}
+
+.clickable:hover{
+    background: hsl(0, 0%, 95%);
+    transition: background ease-in-out 0.2s;
+}
+
+.clickable{
+    cursor: pointer;
+    transition: background ease-in-out 0.2s;
+}
+
+.bottom-border{
+    border-bottom-width: 0.10416666666666666666666666666667vw;
+}

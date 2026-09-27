@@ -1,0 +1,4 @@
+.section-rounded{
+    overflow: hidden;
+    border-radius: clamp(10px, 0.69444444444444444444444444444444vw, 20px);
+}

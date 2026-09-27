@@ -1,0 +1,11 @@
+ion-button{
+  --background: none;
+  --background-activated: none;
+  --color: var(--color-cerulean);
+  font-size: var(--text-s);
+  --padding-top: none;
+  --padding-bottom: none;
+  --padding-end: none;
+  --padding-start: none;
+  min-height: fit-content;
+}

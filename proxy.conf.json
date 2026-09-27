@@ -1,0 +1,19 @@
+{
+  "/api/**": {
+    "target": "http://127.0.0.1:5555",
+    "secure": false,
+    "changeOrigin": false,
+    "pathRewrite": {
+      "^/api": ""
+    }
+  },
+  "/notification-service-ws/**": {
+    "target": "ws://127.0.0.1:8080",
+    "secure": false,
+    "ws": true,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/notification-service-ws": ""
+    }
+  }
+}
