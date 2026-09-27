@@ -21,19 +21,25 @@ jobs:
       - run: npx cap sync ios
       - run: find ios -maxdepth 4 \( -name '*.xcodeproj' -o -name '*.xcworkspace' \) -print
 
-      - name: Build for iOS Simulator
+      - name: Build unsigned iPhone IPA
         run: |
           xcodebuild \
             -project ios/App/App.xcodeproj \
             -scheme App \
-            -configuration Debug \
-            -sdk iphonesimulator \
-            -destination 'generic/platform=iOS Simulator' \
-            -derivedDataPath "$RUNNER_TEMP/ios-build" \
+            -configuration Release \
+            -sdk iphoneos \
+            -destination 'generic/platform=iOS' \
+            -derivedDataPath "$RUNNER_TEMP/ios-device" \
             CODE_SIGNING_ALLOWED=NO \
             build
 
+          mkdir -p "$RUNNER_TEMP/ipa/Payload"
+          cp -R "$RUNNER_TEMP/ios-device/Build/Products/Release-iphoneos/App.app" \
+            "$RUNNER_TEMP/ipa/Payload/"
+          cd "$RUNNER_TEMP/ipa"
+          zip -qry LiveChat-unsigned.ipa Payload
+
       - uses: actions/upload-artifact@v4
         with:
-          name: ios-simulator-build
-          path: ${{ runner.temp }}/ios-build/Build/Products/Debug-iphonesimulator/*.app
+          name: ios-device-unsigned
+          path: ${{ runner.temp }}/ipa/LiveChat-unsigned.ipa
