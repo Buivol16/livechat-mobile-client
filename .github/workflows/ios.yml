@@ -17,7 +17,6 @@ jobs:
 
       - run: npm ci
       - run: npm run build
-      - run: find dist -name index.html
       - run: npx cap add ios
       - run: npx cap sync ios
 
