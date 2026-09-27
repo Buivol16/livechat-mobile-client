@@ -13,8 +13,7 @@ import { ChatPreview } from '../../models/chatpreview.models';
   providedIn: 'root',
 })
 export class ChatService {
-  private readonly CHAT_SERVICE_URL_PREFIX =
-    'http://localhost:5555/chat-service/chat';
+  private readonly CHAT_SERVICE_URL_PREFIX = `api/chat-service/chat`;
   readonly http = inject(HttpClient);
   readonly messageService = inject(MessageService);
   readonly keycloakService = inject(KeycloakService);
@@ -49,9 +48,11 @@ export class ChatService {
   }
 
   joinToChat(code: string, onComplete: () => void) {
-    this.http.post(`${this.CHAT_SERVICE_URL_PREFIX}/join/${code}`, null).subscribe({
-      complete: onComplete
-    });
+    this.http
+      .post(`${this.CHAT_SERVICE_URL_PREFIX}/join/${code}`, null)
+      .subscribe({
+        complete: onComplete,
+      });
   }
 
   readMessage(messageIds: MessageReadEvent) {

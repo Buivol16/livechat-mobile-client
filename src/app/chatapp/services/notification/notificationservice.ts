@@ -15,11 +15,9 @@ export default class NotificationService implements OnDestroy {
   private readonly http = inject(HttpClient);
   private readonly chatService = inject(ChatService);
 
-  private readonly NOTIFICATION_SERVICE_URL =
-    'ws://localhost:8080/notification';
+  private readonly NOTIFICATION_SERVICE_URL = `notification-service-ws/notification`;
 
-  private readonly NOTIFICATION_CONFIRMED_URL =
-    'http://localhost:5555/notification-service/notification/confirm';
+  private readonly NOTIFICATION_CONFIRMED_URL = `/api/notification-service/notification/confirm`;
 
   private readonly NEW_MESSAGE_NOTIFICATION_URL = '/user/topic/notification';
 

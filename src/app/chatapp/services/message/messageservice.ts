@@ -9,8 +9,7 @@ import { MessageReadEvent } from '../../models/messagereadevent.models';
   providedIn: 'root',
 })
 export class MessageService {
-  private readonly MESSAGE_SERVICE_URL_PREFIX =
-    'http://localhost:5555/message-service/message';
+  private readonly MESSAGE_SERVICE_URL_PREFIX = `api/message-service/message`;
   readonly http = inject(HttpClient);
   readonly keycloakService = inject(KeycloakService);
   readonly messagesReceived = signal(false);

@@ -7,8 +7,9 @@ export default async function initKeycloak(){
             console.log(`Success authentication ${authenticated}`);
         };
     await keycloak.init({
-            onLoad: "login-required",
-            flow: "hybrid",
-            scope: "profile basic"
-        });
+      onLoad: 'login-required',
+      flow: 'hybrid',
+      scope: 'profile basic',
+      checkLoginIframe: false,
+    });
 }
