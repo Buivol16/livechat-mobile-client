@@ -6,7 +6,7 @@ import Keycloak from 'keycloak-js';
 })
 export default class KeycloakService {
   private readonly keycloak: Keycloak = new Keycloak({
-    url: `http://${window.location.hostname}:6060`,
+    url: `https://${window.location.hostname}:8443`,
     realm: 'livechat',
     clientId: 'front-app',
   });
