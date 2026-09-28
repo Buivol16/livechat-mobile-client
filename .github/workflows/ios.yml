@@ -18,8 +18,7 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: npx cap add ios
-      - run: npx cap sync ios
-      - run: find ios -maxdepth 4 \( -name '*.xcodeproj' -o -name '*.xcworkspace' \) -print
+      - run: npx cap sync ios --livereload --external --public-host=192.168.100.4
 
       - name: Build unsigned iPhone IPA
         run: |
