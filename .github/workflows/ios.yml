@@ -18,7 +18,7 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: npx cap add ios
-      - run: npx cap sync ios --livereload --external --public-host=192.168.100.4
+      - run: npx cap sync ios
 
       - name: Build unsigned iPhone IPA
         run: |

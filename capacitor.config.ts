@@ -4,6 +4,10 @@ const config: CapacitorConfig = {
   appId: 'pl.denys',
   appName: 'LiveChat',
   webDir: 'dist/livechat-browser-client/browser',
+
+  ios: {
+    webContentsDebuggingEnabled: true,
+  },
 };
 
 export default config;
