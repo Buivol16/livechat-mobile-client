@@ -15,15 +15,31 @@
 
 }
 
-ion-item{
+app-chatwindow {
+  padding-top: var(--safe-area-inset-top, env(safe-area-inset-top, 0px));
+  padding-bottom: var(
+    --safe-area-inset-bottom,
+    env(safe-area-inset-bottom, 0px)
+  );
+}
+
+ion-tabs {
+  padding-top: var(--safe-area-inset-top, env(safe-area-inset-top, 0px));
+  padding-bottom: var(
+    --safe-area-inset-bottom,
+    env(safe-area-inset-bottom, 0px)
+  );
+}
+
+ion-item {
   --padding-start: 0;
   --inner-padding-end: 0;
   --border-style: none;
 }
 
-ion-back-button{
+ion-back-button {
   --background: white;
-  border: #E7E7E7 solid clamp(1px, 0.27777777777777777777777777777778vw, 4px);
+  border: #e7e7e7 solid clamp(1px, 0.27777777777777777777777777777778vw, 4px);
   --border-radius: calc(infinity * 1px);
   border-radius: calc(infinity * 1px);
   aspect-ratio: 1/1;
@@ -34,8 +50,8 @@ ion-back-button{
   --icon-margin-start: 0;
 }
 
-ion-tab-bar{
-  --ion-tab-bar-x-padding:  5.5555555555555555555555555555556vw;
+ion-tab-bar {
+  --ion-tab-bar-x-padding: 5.5555555555555555555555555555556vw;
   --ion-tab-bar-y-padding: 2.7777777777777777777777777777778vw;
   --padding: var(--ion-tab-bar-y-padding) var(--ion-tab-bar-x-padding);
   padding: var(--padding);
@@ -44,11 +60,12 @@ ion-tab-bar{
   border-top-right-radius: var(--radius-tab);
 }
 
-ion-tab-button{
+ion-tab-button {
   padding-block: 1.3888888888888888888888888888889vw;
   --color-selected: var(--color-accent);
   --color: var(--color-noaccent);
-  transition: all ease-in-out calc(var(--ease-tab-switch-animation-duration) - 100ms);
+  transition: all ease-in-out
+    calc(var(--ease-tab-switch-animation-duration) - 100ms);
 }
 
 ion-modal {
