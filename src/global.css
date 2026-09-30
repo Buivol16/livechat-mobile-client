@@ -21,8 +21,8 @@
 
   --color-app-background: #f2f2f2;
   --color-modal-button-background: #f6f7f8;
-  --color-modal-button-activated-text: #00A6C8;
-  --color-modal-button-activated-background: #EAFBFF;
+  --color-modal-button-activated-text: #00a6c8;
+  --color-modal-button-activated-background: #eafbff;
   --color-app-border: #d9d9d9;
   --color-accent: #333333;
   --color-noaccent: #a6a6a6;
@@ -64,7 +64,8 @@
   --spacing-modal-y-padding: 6.6666666666666666666666666666667vw; /* 24px/360px */
   --spacing-modal-gap: 3.8888888888888888888888888888889vw; /* 14px/360px */
   --spacing-modal-elements-gap: 2.2222222222222222222222222222222vw; /* 14px/360px */
-  --spacing-modal-button-selected-icon-width: 4.1666666666666666666666666666667vw /* 15px/360px */;
+  --spacing-modal-button-selected-icon-width: 4.1666666666666666666666666666667vw
+    /* 15px/360px */;
 
   --spacing-menu-chat-x-padding: 4.1666666666666666666666666666667vw; /* 15px/360px */
   --spacing-menu-chat-y-padding: 3.3333333333333333333333333333333vw; /* 12px/360px */
@@ -117,7 +118,9 @@
   content: "";
   position: absolute;
   inset: 0px;
-  --width: calc((100% / var(--count)) - var(--ion-tab-bar-y-padding));
+  --width: calc(
+    (100% - var(--ion-tab-bar-x-padding) * 2) / var(--count)
+  );
   width: var(--width);
   height: calc(100% - var(--ion-tab-bar-x-padding));
   margin-top: calc(0% + var(--ion-tab-bar-y-padding));
