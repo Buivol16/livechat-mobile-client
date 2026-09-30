@@ -9,7 +9,7 @@ import { addIcons } from 'ionicons';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'livechat-browser-client';
+  title = 'livechat-mobile-client';
 
   constructor(){
     addIcons({

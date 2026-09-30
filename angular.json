@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "livechat-browser-client": {
+    "livechat-mobile-client": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,12 +13,13 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "outputPath": "dist/livechat-browser-client",
+            "outputPath": "dist/livechat-mobile-client",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
+            "baseHref": "/dist/livechat-mobile-client/browser/",
             "tsConfig": "tsconfig.app.json",
             "assets": [
               {
@@ -92,10 +93,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "livechat-browser-client:build:production"
+              "buildTarget": "livechat-mobile-client:build:production"
             },
             "development": {
-              "buildTarget": "livechat-browser-client:build:development"
+              "buildTarget": "livechat-mobile-client:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -138,24 +139,24 @@
         "ionic-cordova-serve": {
           "builder": "@ionic/angular-toolkit:cordova-serve",
           "options": {
-            "cordovaBuildTarget": "livechat-browser-client:ionic-cordova-build",
-            "devServerTarget": "livechat-browser-client:serve"
+            "cordovaBuildTarget": "livechat-mobile-client:ionic-cordova-build",
+            "devServerTarget": "livechat-mobile-client:serve"
           },
           "configurations": {
             "production": {
-              "cordovaBuildTarget": "livechat-browser-client:ionic-cordova-build:production",
-              "devServerTarget": "livechat-browser-client:serve:production"
+              "cordovaBuildTarget": "livechat-mobile-client:ionic-cordova-build:production",
+              "devServerTarget": "livechat-mobile-client:serve:production"
             }
           }
         },
         "ionic-cordova-build": {
           "builder": "@ionic/angular-toolkit:cordova-build",
           "options": {
-            "browserTarget": "livechat-browser-client:build"
+            "browserTarget": "livechat-mobile-client:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "livechat-browser-client:build:production"
+              "browserTarget": "livechat-mobile-client:build:production"
             }
           }
         }

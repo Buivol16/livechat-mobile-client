@@ -16,7 +16,7 @@ jobs:
           cache: npm
 
       - run: npm ci
-      - run: npx ng build --configuration=development
+      - run: npx ng build --configuration development --base-href /
       - run: npx cap add ios
       - run: npx cap sync ios
 
