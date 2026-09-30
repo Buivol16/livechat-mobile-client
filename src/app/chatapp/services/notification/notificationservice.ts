@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { ChatService } from '../chat/chatservice';
 import { Message } from '../../models/message.models';
 import { MessageReadEvent } from '../../models/messagereadevent.models';
+import { environment } from '../../../../environments/environment';
 
 @Injectable({
   providedIn: 'any',
@@ -15,9 +16,9 @@ export default class NotificationService implements OnDestroy {
   private readonly http = inject(HttpClient);
   private readonly chatService = inject(ChatService);
 
-  private readonly NOTIFICATION_SERVICE_URL = `notification-service-ws/notification`;
+  private readonly NOTIFICATION_SERVICE_URL = `${environment.notificationServiceWebsocketUrl}/notification`;
 
-  private readonly NOTIFICATION_CONFIRMED_URL = `/api/notification-service/notification/confirm`;
+  private readonly NOTIFICATION_CONFIRMED_URL = `${environment.apiUrl}/notification-service/notification/confirm`;
 
   private readonly NEW_MESSAGE_NOTIFICATION_URL = '/user/topic/notification';
 

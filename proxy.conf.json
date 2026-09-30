@@ -7,6 +7,14 @@
       "^/api": ""
     }
   },
+  "/keycloak/**": {
+    "target": "https://127.0.0.1:8443",
+    "secure": true,
+    "changeOrigin": false,
+    "pathRewrite": {
+      "^/keycloak": ""
+    }
+  },
   "/notification-service-ws/**": {
     "target": "ws://127.0.0.1:8080",
     "secure": false,

@@ -4,12 +4,13 @@ import { Message } from '../../models/message.models';
 import { Chat } from '../../models/chat.models';
 import KeycloakService from '../keycloak/keycloakservice';
 import { MessageReadEvent } from '../../models/messagereadevent.models';
+import { environment } from '../../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MessageService {
-  private readonly MESSAGE_SERVICE_URL_PREFIX = `api/message-service/message`;
+  private readonly MESSAGE_SERVICE_URL_PREFIX = `${environment.apiUrl}/message-service/message`;
   readonly http = inject(HttpClient);
   readonly keycloakService = inject(KeycloakService);
   readonly messagesReceived = signal(false);

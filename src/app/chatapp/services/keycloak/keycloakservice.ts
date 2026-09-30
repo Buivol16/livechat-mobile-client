@@ -1,12 +1,13 @@
 import { Injectable } from "@angular/core";
 import Keycloak from 'keycloak-js';
+import { environment } from "../../../../environments/environment";
 
 @Injectable({
   providedIn: 'root',
 })
 export default class KeycloakService {
   private readonly keycloak: Keycloak = new Keycloak({
-    url: `https://${window.location.hostname}:8443`,
+    url: `${environment.keycloakUrl}`,
     realm: 'livechat',
     clientId: 'front-app',
   });
